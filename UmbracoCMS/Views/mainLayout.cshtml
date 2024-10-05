@@ -1,0 +1,46 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+    var pageTitle = !String.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix offers expert financial consulting services" : "Onatrix offers expert financial consulting services";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Onatrix offers expert financial consulting services, including risk management, financial advising, tax and trust services. With over 40 years of experience, we provide solutions to help grow your business faster. Contact us to learn more about our services and success stories.">
+    <title>@Model.Value("pageTitle")</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- header -->
+    @await Html.PartialAsync("Navigation")
+    <!-- end header -->
+    @if(!string.IsNullOrEmpty(ViewBag.Title)){
+	@await Html.PartialAsync("breadcrumb")
+}
+    @if(ViewBag.Title == "Contact Us")
+    {
+        @await Html.PartialAsync("contactInfo")
+    }
+    <!-- main -->
+    <div class="main">
+		@RenderBody()
+    </div>
+    <!-- end main -->
+	    <!-- @await Html.PartialAsync("contactInfo") -->
+    @if(ViewBag.Title != "Onatrix" && ViewBag.Title != "Contact Us")
+    {
+        @await Html.PartialAsync("contactInfo")
+    }
+    <!-- footer -->
+    @await Html.PartialAsync("footer")
+    <!-- end footer -->
+
+    <script src="/scripts/script.js"></script>
+    <script src="https://kit.fontawesome.com/31bc6052f9.js" crossorigin="anonymous"></script>
+</body>
+</html>

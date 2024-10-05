@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+        <div class="about-us">
+            <div class="about-us-container">
+                <div class="about-us-content">
+                    <span>@Model?.Value("aboutUsSubTitle")</span>
+                    <div class="about-us-title">
+                        @Model?.Value("aboutUsTitle")
+                    </div>
+                    <div class="about-us-text">
+                        <p class="quote">@Model.Value("aboutUsQouteText")</p>
+                        @Model?.Value("aboutUsText")
+                    </div>
+                    <div class="about-us-sub-text">@Model?.Value("aboutUsName")</div>
+                </div>
+                <div class="about-us-form-container">
+                    <div class="about-us-form-title">
+                        @Model?.Value("aboutUsFormTitle")
+                    </div>
+                    <div class="about-us-form-content">
+                        <div class="about-us-form-text">
+                            @Model?.Value("aboutUsFormText")
+                        </div>
+                        <form class="about-us-form" action="#" method="post">
+                            <input type="text" placeholder="Name">
+                            <input type="email" placeholder="Email address">
+                            <input type="tel" placeholder="Phone">
+                            <select name="options" id="about-us-select" aria-label="Choose an option">
+                                <option value="1">Financial consulting</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="4">Option 4</option>
+                            </select>
+                            <button type="submit">@Model?.Value("aboutUsFormButtonText")</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

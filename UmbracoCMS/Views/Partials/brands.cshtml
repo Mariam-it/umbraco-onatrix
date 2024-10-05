@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var brandImage1 = Model?.Value<IPublishedContent>("brandsImage1")?.Url() ?? "";
+    var brandImage2 = Model?.Value<IPublishedContent>("brandsImage2")?.Url() ?? "";
+    var brandImage3 = Model?.Value<IPublishedContent>("brandsImage3")?.Url() ?? "";
+    var brandImage4 = Model?.Value<IPublishedContent>("brandsImage4")?.Url() ?? "";
+    var brandImage5 = Model?.Value<IPublishedContent>("brandsImage5")?.Url() ?? "";
+    var brandImage6 = Model?.Value<IPublishedContent>("brandsImage6")?.Url() ?? "";
+}
+<div class="partners">
+    <div class="partners-container">
+        <div class="partners-images">
+            <img src="@brandImage1" alt="Partner logo 1">
+            <img src="@brandImage2" alt="Partner logo 2">
+            <img src="@brandImage3" alt="Partner logo 3">
+            <img src="@brandImage4" alt="Partner logo 4">
+            <img src="@brandImage5" alt="Partner logo 5">
+            <img src="@brandImage6" alt="Partner logo 6">
+        </div>
+        <div class="partners-images">
+            <img src="@brandImage1" alt="Partner logo 1">
+            <img src="@brandImage2" alt="Partner logo 2">
+            <img src="@brandImage3" alt="Partner logo 3">
+            <img src="@brandImage4" alt="Partner logo 4">
+            <img src="@brandImage5" alt="Partner logo 5">
+            <img src="@brandImage6" alt="Partner logo 6">
+        </div>
+    </div>
+</div>

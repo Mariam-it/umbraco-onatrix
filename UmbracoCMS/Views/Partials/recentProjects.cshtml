@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var selection = Umbraco.Content(Guid.Parse("8c0c38c8-8671-41ac-a3dc-b6c648e3d842"))
+    .ChildrenOfType("projectItemPage")
+    .Where(x => x.IsVisible());
+}
+<div class="recent-projects">
+    <div class="recent-projects-container">
+        <div class="recent-projects-heading">
+            <div class="recent-projects-title">
+                <span>OUR PROJECTS</span>
+                Recent projects
+            </div>
+        </div>
+        <div class="recent-projects-items">
+            @foreach (var item in selection)
+            {
+                    var image = item?.Value<IPublishedContent>("projectItemImage")?.Url() ?? "";
+                    var date = item?.Value<string>("projectItemDate") ?? "";
+                <a href="@item.Url()" class="recent-projects-item">
+                    <img class="recent-projects-item-img" src="@image" alt="@item.Name()">
+                    <div class="recent-projects-item-heading">
+                        <div class="recent-projects-item-title">
+                            @item.Name()
+                            <span class="recent-projects-item-category">Financial Services</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

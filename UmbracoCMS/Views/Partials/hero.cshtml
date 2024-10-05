@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var heroImage = Model?.Value<IPublishedContent>("heroImage")?.Url() ?? "";
+}
+    <div class="homepage-hero">
+        <div class="hero-container">
+            <div class="hero-image-container">
+                <img src="@heroImage" alt="Hero image representing success and innovation" class="hero-img">
+            </div>
+            <div class="hero-content-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        @Model?.Value("heroTitle")
+                    </h1>
+                    <p class="hero-text">
+                        @Model?.Value("heroText")
+                    </p>
+                    <div class="hero-btn-container">
+                        <a href="@Model?.Value("heroButtonUrl")" class="hero-btn">
+                            @Model.Value("heroButtonText")
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

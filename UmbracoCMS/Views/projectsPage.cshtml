@@ -1,0 +1,74 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	var selection = Umbraco.Content(Guid.Parse("8c0c38c8-8671-41ac-a3dc-b6c648e3d842"))
+    .ChildrenOfType("projectItemPage")
+    .Where(x => x.IsVisible());
+}
+
+<div class="projects-section">
+	<div class="projects-container">
+		<div class="projects-content">
+			<div class="projects-items">
+				<div class="projects-item">
+					@foreach (var item in selection)
+					{
+						var image = item?.Value<IPublishedContent>("projectItemImage")?.Url() ?? "";
+						var text = item?.Value<string>("projectItemText1") ?? "";
+						var date = item?.Value<string>("projectItemDate") ?? "";
+						<a href="@item.Url()">
+							<img class="projects-item-img" src="@image" alt="">
+							<div class="projects-item-content">
+								<div class="projects-item-title">
+									@item.Name()
+								</div>
+								<div class="projects-item-date">
+									<i class="fa-regular fa-calendar-days"></i>
+									@date
+								</div>
+								<p class="projects-item-text">
+									@text
+								</p>
+								<a class="projects-item-link" href="@item.Url()">Read more <i
+										class="fa-solid fa-arrow-right"></i></a>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+			<div class="pagination">
+				<a href="#" class="prev">Prev</a>
+				<a href="#" class="page active">1</a>
+				<a href="#" class="page">2</a>
+				<a href="#" class="next">Next</a>
+			</div>
+		</div>
+		<div class="projects-tags">
+			<div class="porijects-tags-title">Tags</div>
+			<div class="porijects-tags-items">
+				<span class="porijects-tags-item">Report</span>
+				<span class="porijects-tags-item">Business plans</span>
+				<span class="porijects-tags-item">Insights</span>
+				<span class="porijects-tags-item">Business</span>
+				<span class="porijects-tags-item">App</span>
+				<span class="porijects-tags-item">Project</span>
+				<span class="porijects-tags-item">Finance</span>
+				<span class="porijects-tags-item">Pricing</span>
+			</div>
+			<div class="help-item">
+				<div class="help-title">How can we help you?</div>
+				<div class="help-text">online support 24/7, we are here to help you</div>
+				<form action="#" method="post" class="help-form">
+					<label for="">
+						<input type="email" name="s" placeholder="E-mail address">
+					</label>
+					<button type="submit" class="help-email">
+						<i class="fa-solid fa-envelope"></i>
+					</button>
+				</form>
+				<img src="/images/Mail.svg" alt="">
+			</div>
+		</div>
+	</div>
+</div>

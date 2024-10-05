@@ -1,0 +1,44 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	var selection = Umbraco.Content(Guid.Parse("5d08e969-0580-4375-94c1-13580b2b07e4"))
+    .ChildrenOfType("serviceItemPage")
+    .Where(x => x.IsVisible());
+}
+
+        <div class="our-services services-bg">
+            <div class="our-services-container">
+                <div class="our-services-content">
+                    <div class="our-services-title">
+                        We Provide The Solutions <br>
+                        To Grow Your Business Faster
+                    </div>
+                    <div class="our-services-items">
+                        @foreach (var item in selection)
+                        {
+                            var image = item?.Value<IPublishedContent>("serviceItemImage")?.Url() ?? "";
+                            var text = item?.Value<string>("serviceItemText4") ?? "";
+                            <a href="@item.Url()" class="our-services-item">
+                                <div class="services-item-title">
+                                    @item.Name()
+                                </div>
+                                <img src="@image" alt="">
+                                <div class="services-item-text">
+                                    @text
+                                </div>
+                            </a>
+                        }
+                    </div>
+                    <div class="pagination">
+                        <a href="#" class="prev">Prev</a>
+                        <a href="#" class="page active">1</a>
+                        <a href="#" class="page">2</a>
+                        <a href="#" class="next">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+

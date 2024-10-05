@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var bgImage = Model?.Value<IPublishedContent>("storiesBackgroundImage")?.Url() ?? "";
+    var image = Model?.Value<IPublishedContent>("storiesImage")?.Url() ?? "";
+}
+<div class="success-story">
+    <div class="success-story-container">
+        <div class="success-story-heading">
+            <div class="success-story-title">
+                <span>@Model?.Value("storiesSubTitle")</span>
+                @Model?.Value("storiesTitle")
+            </div>
+        </div>
+        <div class="success-story-items">
+            <div class="success-story-item">
+                <span>@Model?.Value("storiesItemSubTitle1")</span>
+                <div class="success-story-text">@Model?.Value("storiesItemText1")</div>
+            </div>
+            <div class="success-story-item">
+                <span>@Model?.Value("storiesItemSubTitle2")</span>
+                <div class="success-story-text">@Model?.Value("storiesItemText2")</div>
+            </div>
+            <div class="success-story-item">
+                <span>@Model?.Value("storiesItemSubTitle3")</span>
+                <div class="success-story-text">@Model?.Value("storiesItemText3")</div>
+            </div>
+        </div>
+        <div class="success-story-images">
+            <img class="success-story-map-bg-img" src="@bgImage" alt="World map background image representing global success">
+            <div class="success-story-video">
+                <img class="success-story-people-img" src="@image" alt="Video thumbnail of customer success stories">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("5d08e969-0580-4375-94c1-13580b2b07e4"))
+    .ChildrenOfType("serviceItemPage")
+    .Where(x => x.IsVisible());
+}
+
+
+<div class="our-services">
+    <div class="our-services-container">
+        <div class="our-services-content">
+            <div class="our-services-title">
+                <span>@Model?.Value("ourServicesSubTitle")</span>
+                @Model?.Value("ourServicesTitle")
+            </div>
+            <div class="our-services-items">
+                	@foreach (var item in selection)
+                    {
+                        var image = item?.Value<IPublishedContent>("serviceItemImage")?.Url() ?? "";
+                        var text = item?.Value<string>("serviceItemText4") ?? "";
+                        <a href="@item.Url()" class="our-services-item">
+                            <div class="services-item-title">
+                                @item.Name()
+                            </div>
+                            <img src="@image" alt="@item.Name() service image">
+                            <div class="services-item-text">
+                                @text
+                            </div>
+                        </a>
+                    }
+            </div>
+        </div>
+    </div>
+</div>

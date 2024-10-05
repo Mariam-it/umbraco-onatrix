@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var bgImage = Model?.Value<IPublishedContent>("clientsBackgroundImage")?.Url() ?? "";
+    var image = Model?.Value<IPublishedContent>("clientsImage")?.Url() ?? "";
+}
+<div class="choose-us">
+    <div class="choose-us-container">
+        <div class="choose-us-heading">
+            <div class="choose-us-title">
+                @Model?.Value("clientsTitle")
+                <span>@Model?.Value("clientsSubTitle")</span>
+            </div>
+            <div class="choose-us-text">
+                @Model?.Value("clientsText")
+            </div>
+            <a href="!#" class="choose-us-btn">
+                @Model?.Value("clientsButtonText")
+            </a>
+        </div>
+        <div class="choose-us-images">
+            <img class="choose-us-map-bg-img" src="@bgImage" alt="Background world map image representing global clients">
+            <img class="choose-us-people-img" src="@image" alt="Happy clients working with the company">
+        </div>
+    </div>
+</div>

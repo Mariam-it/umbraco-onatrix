@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var image1 = Model?.Value<IPublishedContent>("ourTeamImage1")?.Url() ?? "";
+    var image2 = Model?.Value<IPublishedContent>("ourTeamImage2")?.Url() ?? "";
+    var image3 = Model?.Value<IPublishedContent>("ourTeamImage3")?.Url() ?? "";
+    var image4 = Model?.Value<IPublishedContent>("ourTeamImage4")?.Url() ?? "";
+    var image5 = Model?.Value<IPublishedContent>("ourTeamImage5")?.Url() ?? "";
+    var image6 = Model?.Value<IPublishedContent>("ourTeamImage6")?.Url() ?? "";
+    var image7 = Model?.Value<IPublishedContent>("ourTeamImage7")?.Url() ?? "";
+}
+<div class="our-team-section">
+    <div class="our-team-container">
+        <div class="our-team-content">
+            <div class="our-team-heading">
+                <span>@Model?.Value("ourTeamSubTitle")</span>
+                <div class="our-team-heading-title">@Model?.Value("ourTeamTitle")</div>
+            </div>
+            <div class="our-team-items">
+                <div class="our-team-item">
+                    <img src="@image1" alt="Brandon Newton, Financial Advisor at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName1")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText1")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image2" alt="AJ Carter, Financial Advisor at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName2")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText2")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image3" alt="Aaron Lambert, Business Specialist at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName3")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText3")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image4" alt="Tina Fox, CEO & Founder at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName4")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText4")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image5" alt="Brandon Kerr, CFO & Co-Founder at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName5")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText5")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image6" alt="Miranda Dayton, Head of HR at Onatrix">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName6")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText6")</div>
+                    </div>
+                </div>
+                <div class="our-team-item">
+                    <img src="@image7" alt="Kevin Gardner, Banking Advisor at Swedbank">
+                    <div class="our-team-item-content">
+                        <div class="our-team-item-title">@Model?.Value("ourTeamName7")</div>
+                        <div class="our-team-item-text">@Model?.Value("ourTeamText7")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

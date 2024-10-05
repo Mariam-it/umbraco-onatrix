@@ -1,0 +1,86 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+    var aboutImage = "/media/3k0hppvo/image-24-min-2.png";
+    var itemImage = Model?.Value<IPublishedContent>("serviceItemImage")?.Url() ?? "";
+    var itemImage2 = Model?.Value<IPublishedContent>("serviceItemImage2")?.Url() ?? "";
+}
+        <!-- service details -->
+         <div class="service-details-section">
+            <div class="service-details-container">
+                <div class="service-details-content">
+                    <div class="service-details-to-about">
+                        <div class="about-item">
+                            <div class="about-item-title">About us</div>
+                            <img src="@aboutImage" alt="">
+                            <div class="about-item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </div>
+                        </div>
+                        <div class="help-item">
+                            <div class="help-title">How can we help you?</div>
+                            <div class="help-text">online support 24/7, we are here to help you</div>
+                            <form action="#" method="post" class="help-form">
+                                <label for="">
+                                    <input type="email" name="s" placeholder="E-mail address">
+                                </label>
+                                <button type="submit" class="help-email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </button>
+                            </form>
+                            <img src="/images/Mail.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="service-details-item">
+                        <img src="@itemImage" alt="">
+                        <div class="service-details-item-title">@Model.Value("serviceItemSubTitle1")</div>
+                        <div class="service-details-item-list">
+                            <ul>
+                                <li>@Model?.Value("serviceItemText1")</li>
+                                <li>@Model?.Value("serviceItemText2")</li>
+                                <li>@Model?.Value("serviceItemText3")</li>
+                            </ul>
+                        </div>
+                        <div class="service-details-item-title">@Model.Value("serviceItemSubTitle2")</div>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText4")</p>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText5")</p>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText6")</p>
+                        <div class="service-details-item-list">
+                            <ul>
+                                <li>@Model?.Value("serviceItemText7")</li>
+                                <li>@Model?.Value("serviceItemText8")</li>
+                                <li>@Model?.Value("serviceItemText9")</li>
+                            </ul>
+                        </div>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText10")</p>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText11")</p>
+                        <img src="@itemImage2" alt="">
+                        <div class="service-details-item-title">@Model.Value("serviceItemSubTitle3")</div>
+                        <p class="service-details-item-text">@Model?.Value("serviceItemText12")</p>
+                        <div class="service-details-item-list">
+                            <ul>
+                                <li>@Model?.Value("serviceItemText13")</li>
+                                <li>@Model?.Value("serviceItemText14")</li>
+                                <li>@Model?.Value("serviceItemText15")</li>
+                                <li>@Model?.Value("serviceItemText16")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-form">
+                    <div class="form-heading">Have a question?</div>
+                    <form action="" method="post">
+                        <div class="form-row">
+                            <input type="text" class="form-input" placeholder="Name" name="name">
+                            <input type="email" class="form-input" placeholder="Email" name="email">
+                        </div>
+                        <div class="form-row">
+                            <textarea class="form-textarea" placeholder="Question" name="question"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="form-submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+         <!-- end service details -->

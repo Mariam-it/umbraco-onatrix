@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ 
+    var selection = Model.Ancestors().ToArray(); 
+    var homePageDisplayName = "Home";
+    var isFirstItem = true;
+    var leftImage = "/media/wjlbmfqo/breadcrumb-left.svg";
+    var rightImage = "/media/x34jaogr/breadcrumb-right.svg";
+}
+
+@if (selection?.Length > 0)
+{
+        <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-cuttent-page-title">@Model.Name</div>
+                <div class="breadcrumb-sub-titles">
+                        <div class="breadcrumb-sub-title">
+                            @foreach (var item in selection.OrderBy(x => x.Level))
+                            {
+                                var displayName = isFirstItem ? homePageDisplayName : item.Name;
+                                <a class="primary-sub-title" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                                <i class="fa-solid fa-chevron-right"></i>
+                                isFirstItem = false;
+                            }
+                            <a class="active secondary-sub-title">@Model.Name</a>
+                        </div>
+                                            <!-- <span class="primary-sub-title">Home</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="secondary-sub-title">About</span> -->
+                </div>
+                <div class="breadcrumb-images">
+                    <img class="image-bg-left" src="@leftImage"
+                        alt="Decorative background element on the left">
+                    <img class="image-bg-right" src="@rightImage"
+                        alt="Decorative background element on the right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end breadcrumb -->
+}
